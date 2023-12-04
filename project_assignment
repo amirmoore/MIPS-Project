@@ -6,7 +6,7 @@ OutOfRange:  .asciiz "Illegal number."
 main:
   li $v0, 4
   la $a0, prompt
-  syscall       #prompt the prompt
+  syscall       #ask the prompt
 
   li $v0, 5
   syscall
@@ -15,7 +15,7 @@ main:
   bge $t0, 25, illegal_num     #make sure the value is <= 25 
 
   #initalizing 0 and 1
-  li #t1, 0
+  li $t1, 0
   li $t2, 1
 
   loop:       #to solve NEED loop
@@ -42,5 +42,7 @@ illegal_num:         #if input is < 25
   la $a0, OutOfrange
   syscall
 
-  j main          #repeat
+  j main      #repeat
 
+li $v0, 10
+syscall
