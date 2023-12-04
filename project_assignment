@@ -4,3 +4,6 @@ OutOfRange:  .asciiz "Illegal number."
 
 .text
 main:
+li $v0, 4
+la $a0, prompt
+syscall 
