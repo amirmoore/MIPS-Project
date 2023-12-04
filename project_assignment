@@ -21,11 +21,22 @@ main:
   loop:       #to solve NEED loop
     li $v0, 1
     move $a0, $t1
-    syscall 
-  
+    syscall        #print current num
 
+    li $v0, 4
+    la $a0, space
+    syscall       #put a space for organization
 
+    add $t3, $t1, $t2     #sum of last 2 = current
+    move $t1, $t2
+    move $t2, $t3       #calculate and shift
 
+    sub $t0, $t0, 1       #n = n-1
+    bgtz $t0, loop
+
+  li $v0, 10
+  syscall     #exit 
+    
 illegal_num:         #if input is < 25
   li $v0, 4
   la $a0, OutOfrange
