@@ -1,3 +1,6 @@
 .data
 prompt:  .asciiz "Enter a number (N >= 25): "
 OutOfRange:  .asciiz "Illegal number."
+
+.text
+main:
