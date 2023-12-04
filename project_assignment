@@ -4,11 +4,20 @@ OutOfRange:  .asciiz "Illegal number."
 
 .text
 main:
+  li $v0, 4
+  la $a0, prompt
+  syscall 
 
-li $v0, 4
-la $a0, prompt
-syscall 
+  li $v0, 5
+  syscall
+  move $t0, $v0
 
-li $v0, 5
-syscall
-move $t0, $v0
+  bge $t0, 25, illegal_num
+
+illegal_num:
+  li $v0, 4
+  la $a0, OutOfrange
+  syscall
+
+  j main
+
