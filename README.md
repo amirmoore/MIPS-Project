@@ -1,2 +1,2 @@
 # compOrg1
-computer organiztion 1 
+ project for computer organization 1 
